@@ -12,7 +12,7 @@ spec:
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://github.com/jessesuen/kargo-canary.git
-      writeBranch: HEAD
+      writeBranch: main
       kustomize:
         images:
         - image: ghcr.io/jessesuen/rollouts-demo
