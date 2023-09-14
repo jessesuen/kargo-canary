@@ -4,7 +4,7 @@ metadata:
   name: 20pct
   namespace: kargo-canary
   annotations:
-    kargo.akuity.io/color: violet
+    kargo.akuity.io/color: cyan
 spec:
   subscriptions:
     upstreamStages:

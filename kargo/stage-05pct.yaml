@@ -4,7 +4,7 @@ metadata:
   name: 05pct
   namespace: kargo-canary
   annotations:
-    kargo.akuity.io/color: red
+    kargo.akuity.io/color: teal
 spec:
   subscriptions:
     repos:
