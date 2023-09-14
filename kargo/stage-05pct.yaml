@@ -1,0 +1,23 @@
+apiVersion: kargo.akuity.io/v1alpha1
+kind: Stage
+metadata:
+  name: 05pct
+  namespace: kargo-canary
+  annotations:
+    kargo.akuity.io/color: red
+spec:
+  subscriptions:
+    repos:
+      images:
+      - repoURL: ghcr.io/jessesuen/rollouts-demo
+        updateStrategy: Latest
+  promotionMechanisms:
+    gitRepoUpdates:
+    - repoURL: https://github.com/jessesuen/kargo-canary.git
+      writeBranch: HEAD
+      kustomize:
+        images:
+        - image: ghcr.io/jessesuen/rollouts-demo
+          path: base/05pct
+    argoCDAppUpdates:
+    - appName: kargo-canary

@@ -1,0 +1,36 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: kargo-canary
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: ""
+    kind: Namespace
+  destinations:
+  - name: '*'
+    namespace: kargo-canary
+    server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  sourceRepos:
+  - https://github.com/jessesuen/kargo-canary.git
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kargo-canary
+  namespace: argocd
+  annotations:
+    kargo.akuity.io/authorized-stage: kargo-canary:*
+spec:
+  destination:
+    namespace: kargo-canary
+    server: https://kubernetes.default.svc
+  project: kargo-canary
+  source:
+    path: base
+    repoURL: https://github.com/jessesuen/kargo-canary.git
+    targetRevision: HEAD

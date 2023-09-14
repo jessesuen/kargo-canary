@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: ghcr.io-creds
+  namespace: kargo-canary
+  annotations:
+    kargo.akuity.io/authorized-projects: kargo-canary
+  labels:
+    kargo.akuity.io/secret-type: repository
+# stringData:
+#   type: git
+#   url: https://github.com/jessesuen/kargo-canary.git
+#   username: username
+#   password: github_pat_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
