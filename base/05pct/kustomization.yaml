@@ -13,4 +13,4 @@ labels:
 images:
 - name: ghcr.io/jessesuen/rollouts-demo
   newName: ghcr.io/jessesuen/rollouts-demo
-  newTag: blue
+  newTag: green
